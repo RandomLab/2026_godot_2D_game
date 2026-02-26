@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://bd158j0wfvf23"]
+
+[ext_resource type="Script" uid="uid://dbvv25wsv1e3" path="res://items/porte.gd" id="1_0npe3"]
+[ext_resource type="Texture2D" uid="uid://d2wguvqhqnf55" path="res://sprites/portet.png" id="1_msypn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0npe3"]
+size = Vector2(47.5, 32.000004)
+
+[sub_resource type="Animation" id="Animation_twwvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, -48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, -144)]
+}
+
+[sub_resource type="Animation" id="Animation_msypn"]
+resource_name = "ourverture"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portet:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, -48), Vector2(32, 48)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portet2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(32, -144), Vector2(32, -240)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0npe3"]
+_data = {
+&"RESET": SubResource("Animation_twwvl"),
+&"ourverture": SubResource("Animation_msypn")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0npe3"]
+radius = 192.0
+
+[node name="Node2D" type="Node2D" unique_id=43093397]
+script = ExtResource("1_0npe3")
+
+[node name="Portet" type="Sprite2D" parent="." unique_id=272824627]
+texture_filter = 1
+position = Vector2(32, -48)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("1_msypn")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Portet" unique_id=512646854]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portet/StaticBody2D" unique_id=1050199506]
+position = Vector2(0.25, 9.536743e-07)
+shape = SubResource("RectangleShape2D_0npe3")
+
+[node name="Portet2" type="Sprite2D" parent="." unique_id=1652094837]
+texture_filter = 1
+position = Vector2(32, -144)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("1_msypn")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Portet2" unique_id=979742932]
+position = Vector2(0, 1.9079789e-07)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portet2/StaticBody2D2" unique_id=1892098199]
+position = Vector2(0, 9.536743e-07)
+shape = SubResource("RectangleShape2D_0npe3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1060886839]
+libraries/ = SubResource("AnimationLibrary_0npe3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1458948241]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=134510927]
+position = Vector2(32, -96)
+shape = SubResource("CircleShape2D_0npe3")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
