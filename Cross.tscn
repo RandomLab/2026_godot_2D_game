@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b7uvla5redsa3"]
+
+[ext_resource type="Texture2D" uid="uid://b0l8fr3f88m2d" path="res://sprites/cross.aseprite" id="1_hbr1f"]
+[ext_resource type="Script" uid="uid://bc1c8hqyhduug" path="res://simple_rotation.gd" id="2_sju6a"]
+
+[node name="Node2D" type="Node2D" unique_id=1348560371]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=693193358]
+offset_left = -8.0
+offset_right = 8.0
+offset_bottom = 213.0
+color = Color(0.0018410678, 0.0018410682, 0.0018410678, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=640523968]
+scale = Vector2(2.6458333, 2.6458333)
+texture = ExtResource("1_hbr1f")
+region_enabled = true
+region_rect = Rect2(0, 0, 48, 48)
+script = ExtResource("2_sju6a")
+vit_rotation = 0.05

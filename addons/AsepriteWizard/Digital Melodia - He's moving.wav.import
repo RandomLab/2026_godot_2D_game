@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dp13ielgje001"
+path="res://.godot/imported/Digital Melodia - He's moving.wav-083f45869a4fb0fb5799d1870ed97bee.sample"
+
+[deps]
+
+source_file="res://addons/AsepriteWizard/Digital Melodia - He's moving.wav"
+dest_files=["res://.godot/imported/Digital Melodia - He's moving.wav-083f45869a4fb0fb5799d1870ed97bee.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
